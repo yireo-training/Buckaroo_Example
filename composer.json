@@ -1,0 +1,16 @@
+{
+    "name": "vendor_name/Example",
+    "description": "description",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "jisse",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+        "magento/framework": "^101.1 | ^102.0 | ^103.0",
+        "magento/module-catalog": "^100.0 | ^101.0 | ^102.0 | ^103.0 | ^104.0"
+    }
+}

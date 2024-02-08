@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="dummy" xsi:type="object">Buckaroo\Example\Console\Command\DummyCommand</item>
+                <item name="di" xsi:type="object">Buckaroo\Example\Console\Command\DiCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Buckaroo\Example\Console\Command\DummyCommand">
+        <arguments>
+            <argument name="dummy" xsi:type="object">Dummy</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Dummy" type="Buckaroo\Magento2\Model\Method\BuckarooAdapter">
+        <arguments>
+            <argument name="usesRedirect" xsi:type="boolean">false</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin name="Buckaroo_Example::modifyProductDetails" type="Buckaroo\Example\Plugin\ModifyProductDetails" />
+    </type>
+</config>
