@@ -1,0 +1,15 @@
+{
+  "buckaroo_items": {
+    "column": {
+      "id": true,
+      "name": true,
+      "description": true
+    },
+    "index": {
+      "BUCKAROO_ITEMS_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

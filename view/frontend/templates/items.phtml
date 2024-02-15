@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+
+use Buckaroo\Example\ViewModel\Items;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Items $itemsViewModel */
+$itemsViewModel = $block->getItemsViewModel();
+if (!$itemsViewModel instanceof Items) {
+    return 'ViewModel does not exist';
+}
+?>
+<div>
+    <h1>Items</h1>
+    <ul>
+        <?php foreach ($itemsViewModel->getItems() as $item) : ?>
+            <li><?= $item->getName() ?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
