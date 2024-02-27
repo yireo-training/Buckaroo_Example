@@ -20,4 +20,14 @@ class ItemModel extends AbstractModel
     {
         return (string) $this->getData('name');
     }
+
+    public function setDescription(string $description)
+    {
+        $this->setData('description', $description);
+    }
+
+    public function getDescription(): string
+    {
+        return (string) $this->getData('description');
+    }
 }

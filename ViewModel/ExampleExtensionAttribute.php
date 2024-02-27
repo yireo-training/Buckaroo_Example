@@ -2,26 +2,23 @@
 
 namespace Buckaroo\Example\ViewModel;
 
+use Buckaroo\Example\Model\ItemModel;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
-class CurrentProduct implements ArgumentInterface
+class ExampleExtensionAttribute implements ArgumentInterface
 {
     private RequestInterface $request;
     private ProductRepositoryInterface $productRepository;
-    private UrlInterface $url;
-
     public function __construct(
         RequestInterface $request,
-        ProductRepositoryInterface $productRepository,
-        UrlInterface $url
+        ProductRepositoryInterface $productRepository
     ) {
         $this->request = $request;
         $this->productRepository = $productRepository;
-        $this->url = $url;
     }
 
     public function getProduct(int $productId = 0): ProductInterface
@@ -33,14 +30,8 @@ class CurrentProduct implements ArgumentInterface
         return $this->productRepository->getById($productId);
     }
 
-    public function getProductUrl(int $productId = 0): string
+    public function getBuckarooExample(): ?ItemModel
     {
-        $productId = $this->getProduct($productId)->getId();
-        return $this->url->getUrl('catalog/product/view', ['id' => $productId]);
-    }
-
-    public function getBuckarooProductIdin(): string
-    {
-        return (string) $this->getProduct()->getBuckarooProductIdin();
+        return $this->getProduct()->getExtensionAttributes()->getBuckarooExample();
     }
 }

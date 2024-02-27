@@ -1,0 +1,11 @@
+<?php declare(strict_types=1);
+
+use Buckaroo\Example\ViewModel\ExampleExtensionAttribute;use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var ExampleExtensionAttribute $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<div>
+    Extension Attribute: <?= $viewModel->getBuckarooExample()?->getName() ?>
+</div>

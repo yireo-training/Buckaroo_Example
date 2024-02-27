@@ -4,8 +4,9 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="dummy" xsi:type="object">Buckaroo\Example\Console\Command\DummyCommand</item>
-                <item name="di" xsi:type="object">Buckaroo\Example\Console\Command\DiCommand</item>
+                <item name="buckaroo_dummy" xsi:type="object">Buckaroo\Example\Console\Command\DummyCommand</item>
+                <item name="buckaroo_di" xsi:type="object">Buckaroo\Example\Console\Command\DiCommand</item>
+                <item name="buckaroo_example" xsi:type="object">Buckaroo\Example\Console\Command\ExampleCommand</item>
             </argument>
         </arguments>
     </type>
@@ -24,5 +25,9 @@
 
     <type name="Magento\Catalog\Api\Data\ProductInterface">
         <plugin name="Buckaroo_Example::modifyProductDetails" type="Buckaroo\Example\Plugin\ModifyProductDetails" />
+    </type>
+
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="Buckaroo_Example::appendExtensionAttributeToRepository" type="Buckaroo\Example\Plugin\AppendExtensionAttributeToRepository" />
     </type>
 </config>

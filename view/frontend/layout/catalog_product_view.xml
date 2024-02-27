@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block template="Buckaroo_Example::extension-attribute.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Buckaroo\Example\ViewModel\ExampleExtensionAttribute</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,56 @@
+<?php
+use Magento\Framework\View\Element\BlockInterface;
+
+/** @var BlockInterface $block */
+
+$color = $block->getData('color');
+?>
+
+<div id="example1">
+    Example1
+</div>
+<script>
+    require(['jquery'], function($) {
+        $('#example1').css('backgroundColor', 'green');
+    });
+</script>
+
+----------------------------------------------------------------------------
+
+<div id="example2">
+    Example2
+</div>
+
+<script>
+    require(['Buckaroo_Example/js/example2'], function() {
+    });
+</script>
+
+----------------------------------------------------------------------------
+
+<div id="example3" data-mage-init='{"example3": {"color": "orange"}}'>
+    Example3
+</div>
+
+----------------------------------------------------------------------------
+
+<div data-bind="scope: 'example4'">
+    <div data-bind="style: {backgroundColor: color}">
+    Example4: <span data-bind="text: foo"></span>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "example4": {
+                    "component": "example4",
+                    "color": "<?= $color ?>"
+                }
+            }
+        }
+    }
+}
+</script>

@@ -2,6 +2,7 @@
   "buckaroo_items": {
     "column": {
       "id": true,
+      "product_id": true,
       "name": true,
       "description": true
     },
